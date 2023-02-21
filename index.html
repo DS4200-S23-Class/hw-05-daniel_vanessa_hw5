@@ -6,6 +6,7 @@
     <!-- Adding necessary information/connecting to css doc-->
     <title>hw-05</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src='js/d3.v6.1.1/d3.min.js'></script>
     
 </head>
 
@@ -13,6 +14,23 @@
 <body>
     <!-- Add header for the page -->
     <h1>hw-05: Interactive Graph with D3</h1>
+
+    <!-- Create table w/ visualizations -->
+    <div class="flex-container">
+
+        <!-- left col -->
+        <div class="col" id="leftcol">
+            <div id="scatterplot"></div>
+        </div>
+        <!-- right col -->
+        <div clas="col" id="rightcol">
+            <p>Last point clicked</p>
+            <div id="coordinates"></div>
+        </div>
+
+    </div>
+
+    <script src='main.js'></script>
 
 </body>
 

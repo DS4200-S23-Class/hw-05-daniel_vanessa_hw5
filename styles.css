@@ -1,0 +1,29 @@
+
+
+/* Set font of website */
+body {
+    font-family: Arial;
+}
+
+/* Set headers such that they are centered */
+h1 {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+}
+
+#leftcol {
+    width: 60%;
+}
+
+#rightcol {
+    width: 40%;
+}
