@@ -16,8 +16,12 @@ h1 {
     flex-direction: row;
 }
 
-.col {
-    display: flex;
+.point {
+    fill: lightblue;
+}
+
+.highlight {
+    fill: yellow;
 }
 
 #leftcol {

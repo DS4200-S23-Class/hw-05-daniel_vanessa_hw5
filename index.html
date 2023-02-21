@@ -19,18 +19,62 @@
     <div class="flex-container">
 
         <!-- left col -->
-        <div class="col" id="leftcol">
+        <div id="leftcol">
             <div id="scatterplot"></div>
         </div>
         <!-- right col -->
-        <div clas="col" id="rightcol">
-            <p>Last point clicked</p>
-            <div id="coordinates"></div>
+        <div id="rightcol">
+
+            <!-- portion of column for coordinates-->
+            <div id="coord-display">
+                <p id="coordinates">Last point clicked:</p>
+            </div>
+
+            <br>
+
+            <!-- portion of column for dropdown/point addition-->
+            <div id="dropdowns">
+
+                <!-- x-coordinate selection -->
+                <label>Select your x-coordinate:</label>
+                <select id="x-coordinate">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+
+                <br>
+
+                <!-- y-coordinate selection -->
+                <label>Select your y-coordinate:</label>
+                <select id="y-coordinate">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+
+                <br>
+
+                <!-- submit button, which adds pt to graph -->
+                <button type="button" onclick="newPoint()">Add to Graph</button>
+            </div>
         </div>
 
     </div>
 
-    <script src='main.js'></script>
+    <script src='js/main.js'></script>
 
 </body>
 
