@@ -41,7 +41,7 @@ d3.csv("data/scatter-data.csv").then((data) => {
 const FRAME2 = d3.select("#barchart")
                   .append("svg")
                     .attr("width", FRAME_WIDTH)
-                    .attr("height", FRAME_HEIGHT)
+                    .attr("height", 700)
                     .attr("class", "frame");
 
 let xScale = d3.scaleBand().range([0, VIS_WIDTH]).padding(0.4);
@@ -54,7 +54,7 @@ d3.csv("data/bar-data.csv").then((data) => {
     xScale.domain(data.map(function(d){return d.category;}));
     yScale.domain([0, d3.max(data, function(d){return d.amount;})]);
 
-    g.append("g") .attr('transform', 'translate(0,'+VIS_HEIGHT+ ')').call(d3.axisBottom(xScale));
+    g.append("g").attr('transform', 'translate(0,'+VIS_HEIGHT+ ')').call(d3.axisBottom(xScale));
 
     g.append('g').call(d3.axisLeft(yScale).ticks(10));
 
