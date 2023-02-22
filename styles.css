@@ -37,3 +37,15 @@ h1, h2 {
     width: 40%;
 }
 
+.bar {
+    fill: navy;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgb(45, 51, 75);
+    border:  solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px;
+  }
