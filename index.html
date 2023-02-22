@@ -3,8 +3,11 @@
 
 <head>
     <meta charset=utf-8/>
-    <!-- Adding necessary information/connecting to css doc-->
+
+    <!-- Adding necessary information (title) -->
     <title>hw-05</title>
+
+    <!-- connect stylesheet and the d3 library -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src='js/d3.v6.1.1/d3.min.js'></script>
     
@@ -18,12 +21,16 @@
     <!-- Create table w/ visualizations -->
     <div class="flex-container">
 
-        <!-- left col -->
+        <!-- left column -->
         <div id="leftcol">
+
+            <!-- Add individual divs for scatter and bar graph-->
             <div id="scatterplot"></div>
             <div id="barchart"></div>
+
         </div>
-        <!-- right col -->
+
+        <!-- right column -->
         <div id="rightcol">
 
             <!-- portion of column for coordinates-->
@@ -75,6 +82,7 @@
 
     </div>
 
+    <!-- adding some acknowledgements! -->
     <h2>Acknowledgements</h2>
     <div>
         <ul>
@@ -90,10 +98,36 @@
                 <a href="https://d3-graph-gallery.com/intro_d3js.html">
                     D3 10 basic examples</a>
             </li>
+            <li>
+                <a href="https://stackoverflow.com/questions/27586566/remove-stroke-border-from-svg-within-html-css-js-web-app">
+                    StackOverflow: adding/removing borders
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tutorialsteacher.com/d3js/axes-in-d3">
+                    D3 Axes
+                </a>
+            </li>
+            <li>
+                <a href="https://forum.freecodecamp.org/t/d3-bar-chart-tooltip-not-positioning-properly/460101">
+                    D3 Bar Chart w/ Tooltip Issues
+                </a>
+            </li>
+            <li>
+                <a href="https://stackoverflow.com/questions/13352277/get-canvas-location-cx-cy-in-d3-js-after-animation-for-future-reference">
+                    Obtaining Coordinates for Points
+                </a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex">
+                    More Flexbox Help
+                </a>
+            </li>
 
         </ul>
     </div>
 
+    <!-- connecting the file to a javascript script -->
     <script src='js/main.js'></script>
 
 </body>

@@ -1,5 +1,4 @@
 
-
 /* Set font of website */
 body {
     font-family: Arial;
@@ -10,42 +9,40 @@ h1, h2 {
     text-align: center;
 }
 
+ /* Create flex container */
 .flex-container {
     display: flex;
     justify-content: left;
     flex-direction: row;
 }
 
+/* Set width of columns (3:2 ratio) */
+#leftcol {
+    flex: 3;
+}
+
+#rightcol {
+    flex: 2;
+}
+
+ /* Set color of point */
 .point {
     fill: lightblue;
 }
 
-.border {
-    stroke: black;
-    stroke-width: 5px;
-}
-
+ /* Set highlight color when point/bar is hovered */
 .highlight {
     fill: yellow;
 }
 
-#leftcol {
-    width: 60%;
-}
-
-#rightcol {
-    width: 40%;
-}
-
+/* Set color of bar */
 .bar {
-    fill: navy;
+    fill: lightblue;
 }
 
+/* Customize tooltip */
 .tooltip {
     position: absolute;
-    background-color: rgb(45, 51, 75);
-    border:  solid;
-    border-width: 2px;
-    border-radius: 5px;
+    background-color: rgb(195, 205, 245);
     padding: 5px;
-  }
+}
