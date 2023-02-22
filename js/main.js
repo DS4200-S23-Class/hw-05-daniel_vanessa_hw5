@@ -91,6 +91,34 @@ d3.csv("data/bar-data.csv").then((data) => {
         .attr("height", function(d){ return VIS_HEIGHT - yScale(d.amount);});
 
     addBarHandler();
+    
+    const TOOLTIP = d3.select("#barchart")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0); 
+
+    function handleMouseover(event, d) {
+        // on mouseover, make opaque 
+        TOOLTIP.style("opacity", 1);
+    };
+
+    function handleMousemove(event, d) {
+        // position the tooltip and fill in information 
+        TOOLTIP.html("Category: " + d.category + "<br>Value: " + d.amount)
+              .style("left", (event.pageX + 10) + "px") 
+              .style("top", (event.pageY - 50) + "px")
+    };
+
+    function handleMouseleave(event, d) {
+      // on mouseleave, make transparant again 
+      TOOLTIP.style("opacity", 0); 
+    };
+
+    FRAME2.selectAll(".point")
+          .on("mouseover", handleMouseover) //add event listeners
+          .on("mousemove", handleMousemove)
+          .on("mouseleave", handleMouseleave);
+
 });
 
 // create button function to add a new point
