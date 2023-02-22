@@ -1,3 +1,5 @@
+// :D
+
 // Set information for vis height/width/margins
 const FRAME_HEIGHT = 600;
 const FRAME_WIDTH = 600;
@@ -8,8 +10,8 @@ const SCATTER_FACTOR = 50;
 const Y_FIX = 10;
 
 // Set vis height/width
-// const VIS_HEIGHT = FRAME_HEIGHT - MARGINS.top - MARGINS.bottom;
-// const VIS_WIDTH = FRAME_WIDTH - MARGINS.left - MARGINS.right;
+const VIS_HEIGHT = FRAME_HEIGHT - MARGINS.top - MARGINS.bottom;
+const VIS_WIDTH = FRAME_WIDTH - MARGINS.left - MARGINS.right;
 
 // Build frame of scatterplot
 const FRAME1 = d3.select("#scatterplot")
