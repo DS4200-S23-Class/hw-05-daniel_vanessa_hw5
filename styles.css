@@ -6,7 +6,7 @@ body {
 }
 
 /* Set headers such that they are centered */
-h1 {
+h1, h2 {
     text-align: center;
 }
 
