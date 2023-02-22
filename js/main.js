@@ -31,34 +31,53 @@ d3.csv("data/scatter-data.csv").then((data) => {
             .attr("cy", (d) => { return ((Y_FIX - parseInt(d.y)) * SCATTER_FACTOR) + MARGINS.top; })
             .attr("r", 15);
       
-    // mouseover function for highlight
-    function pointMouseover(event, d) {
-      d3.select(this).attr("class", "highlight");
-    };
-
-    // mouseout function for highlight
-    function pointMouseout(event, d) {
-      d3.select(this).attr("class", "point");
-    };
-
-    // click function (does not work properly yet!!)
-    function pointClick(event, d) {
-      const clicked = d3.select(this);
-      if (clicked.classed("selected")) {
-          clicked.classed("selected", false);
-          d3.select("#coordinates").text("Last point clicked:");
-          clicked.attr("stroke", null);
-      } else {
-          clicked.classed("selected", true);
-          d3.select("#coordinates").text("Last point clicked: " + `(${d.x}, ${d.y})`);
-          clicked.attr("stroke", "black").attr("stroke-width", 2);
-        }
-      };
-
-    // combine all event handlers and add to frame
-    FRAME1.selectAll(".point")
-          .on("mouseover", pointMouseover)
-          .on("mouseout", pointMouseout)
-          .on("click", pointClick);     
+    addEventHandler()    
 
 });
+
+// create button function to add a new point
+function newPoint() {
+  let x_coordinate = document.getElementById("x-coordinate");
+  let y_coordinate = document.getElementById("y-coordinate");
+
+  FRAME1.append("circle")
+          .attr("class", "point")
+          .attr("cx", (x_coordinate.value * SCATTER_FACTOR) + MARGINS.left)
+          .attr("cy", ((Y_FIX - y_coordinate.value) * SCATTER_FACTOR) + MARGINS.top)
+          .attr("r", 15);
+  console.log(x_coordinate.value, y_coordinate.value)
+
+  addEventHandler()
+};
+
+// mouseover function for adding highlight
+function pointMouseover(event, d) {
+  d3.select(this).attr("class", "highlight");
+};
+
+// mouseout function for removing highlight
+function pointMouseout(event, d) {
+  d3.select(this).attr("class", "point");
+};
+
+// click function (does not work properly yet!!)
+function pointClick(event, d) {
+  const clicked = d3.select(this);
+  if (clicked.classed("selected")) {
+      clicked.classed("selected", false);
+      d3.select("#coordinates").text("Last point clicked:");
+      clicked.attr("stroke", null);
+  } else {
+      clicked.classed("selected", true);
+      d3.select("#coordinates").text("Last point clicked: " + `(${d.x}, ${d.y})`);
+      clicked.attr("stroke", "black").attr("stroke-width", 2);
+    }
+};
+
+// function to add event handlers to points
+function addEventHandler() {
+  FRAME1.selectAll(".point")
+      .on("mouseover", pointMouseover)
+      .on("mouseout", pointMouseout)
+      .on("click", pointClick);
+};
