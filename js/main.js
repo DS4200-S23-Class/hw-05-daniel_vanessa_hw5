@@ -32,6 +32,29 @@ d3.csv("data/scatter-data.csv").then((data) => {
             .attr("cx", (d) => { return (parseInt(d.x) * SCATTER_FACTOR) + MARGINS.left; })
             .attr("cy", (d) => { return ((Y_FIX - parseInt(d.y)) * SCATTER_FACTOR) + MARGINS.top; })
             .attr("r", 15);
+
+    // Add axis to the graph: establish scale functions
+    const X_AXIS_SCALE = d3.scaleLinear()
+                            .domain([0, 10])
+                            .range([0, VIS_WIDTH]);
+
+    const Y_AXIS_SCALE = d3.scaleLinear()
+                            .domain([0, 10])
+                            .range([VIS_HEIGHT, 0]);
+
+    // Add x-axis
+    FRAME1.append("g")
+          .attr("transform", "translate(" + MARGINS.left + 
+          "," + (VIS_HEIGHT + MARGINS.top) + ")") 
+          .call(d3.axisBottom(X_AXIS_SCALE).ticks(10)) 
+          .attr("font-size", "20px"); 
+
+    // Add y-axis
+    FRAME1.append("g")
+          .attr("transform", "translate(" + MARGINS.left +
+          "," + MARGINS.top + ")")
+          .call(d3.axisLeft(Y_AXIS_SCALE).ticks(10))
+          .attr("font-size", "20px");
       
     addEventHandler();
 
