@@ -20,6 +20,11 @@ h1 {
     fill: lightblue;
 }
 
+.border {
+    stroke: black;
+    stroke-width: 5px;
+}
+
 .highlight {
     fill: yellow;
 }
