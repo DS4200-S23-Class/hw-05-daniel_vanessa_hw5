@@ -35,6 +35,37 @@ d3.csv("data/scatter-data.csv").then((data) => {
 
 });
 
+// Build frame of barchart
+const FRAME2 = d3.select("#barchart")
+                  .append("svg")
+                    .attr("width", FRAME_WIDTH)
+                    .attr("height", FRAME_HEIGHT)
+                    .attr("class", "frame");
+
+let xScale = d3.scaleBand().range([0, VIS_WIDTH]).padding(0.4);
+let yScale = d3.scaleLinear().range([VIS_HEIGHT, 0]);
+
+let g = FRAME2.append("g").attr("transform", "translate("+100+","+100+")");
+
+d3.csv("data/bar-data.csv").then((data) => {
+
+    xScale.domain(data.map(function(d){return d.category;}));
+    yScale.domain([0, d3.max(data, function(d){return d.amount;})]);
+
+    g.append("g") .attr('transform', 'translate(0,'+VIS_HEIGHT+ ')').call(d3.axisBottom(xScale));
+
+    g.append('g').call(d3.axisLeft(yScale).ticks(10));
+
+    g.selectAll(" bar")
+        .data(data)
+        .enter ().append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d){ return xScale(d.category);})
+        .attr("y", function (d){ return yScale(d.amount);})
+        .attr("width", xScale.bandwidth())
+        .attr("height", function(d){ return VIS_HEIGHT - yScale(d.amount);});
+});
+
 // create button function to add a new point
 function newPoint() {
   let x_coordinate = document.getElementById("x-coordinate").value;
