@@ -43,6 +43,6 @@ h1, h2 {
 /* Customize tooltip */
 .tooltip {
     position: absolute;
-    background-color: rgb(195, 205, 245);
+    background-color: "moccasin";
     padding: 5px;
 }
