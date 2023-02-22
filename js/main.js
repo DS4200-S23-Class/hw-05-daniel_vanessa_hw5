@@ -58,14 +58,16 @@ d3.csv("data/bar-data.csv").then((data) => {
 
     g.append('g').call(d3.axisLeft(yScale).ticks(10));
 
-    g.selectAll(" bar")
+    g.selectAll("point")
         .data(data)
         .enter ().append("rect")
-        .attr("class", "bar")
+        .attr("class", "point")
         .attr("x", function(d){ return xScale(d.category);})
         .attr("y", function (d){ return yScale(d.amount);})
         .attr("width", xScale.bandwidth())
         .attr("height", function(d){ return VIS_HEIGHT - yScale(d.amount);});
+
+    addBarHandler();
 });
 
 // create button function to add a new point
@@ -108,16 +110,7 @@ function pointClick(event, d) {
     clicked.style("stroke-width", 3);
     clicked.style("stroke", "black");
   };
-  
-  /* if (clicked.classed("selected")) {
-      clicked.classed("selected", false);
-      d3.select("#coordinates").text("Last point clicked:");
-      clicked.attr("stroke", null);
-  } else {
-      clicked.classed("selected", true);
-      d3.select("#coordinates").text("Last point clicked: " + `(${d.x}, ${d.y})`);
-      clicked.attr("stroke", "black").attr("stroke-width", 2);
-    } */
+
 };
 
 // function to add event handlers to points
@@ -127,3 +120,9 @@ function addEventHandler() {
       .on("mouseout", pointMouseout)
       .on("click", pointClick);
 };
+
+function addBarHandler() {
+    g.selectAll(".point")
+        .on("mouseover", pointMouseover)
+        .on("mouseout", pointMouseout)
+}
